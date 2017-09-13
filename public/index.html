@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Mongo Scraper</title>
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    html, body { 
+      height: 100%;
+      /*background-color: #2C2C54;*/
+      /*color: #F5D6BA;*/
+      font-family: Arial;
+    }
+
+    #cover {
+      background: #222 url("./images/news-coffee.jpg") center center no-repeat;
+      color: white;
+      height:80%;
+      display: flex;
+      text-align: center;
+      align-items: center;
+    }
+
+    #cover-caption {
+      width: 100%;
+    }
+    /*.articles-list a {
+      background-color: #A40E4C;
+      border: none;
+      color: #F5D6BA;
+    }
+    button {
+      background-color: #F49D6E;
+      margin-left: 5px;
+      color: #2C2C54;
+    }*/    
+   /* .navbar {
+      background-color: #20315a;
+      color: #F5D6BA;
+    }
+    .h2 {
+      color: white;
+    }
+    body div.container nav div div.collapse.navbar-collapse ul li * {
+      color: #F5D6BA;
+    }
+    body div.container nav div div.navbar-header a {
+      color: #F5D6BA;
+    }   
+    
+    .navbar {
+      border: none;
+    }*/
+    .panel-heading h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: normal;
+    width: 75%;
+    padding-top: 8px;
+}
+  </style>
+
+</head>
+<body>
+<!-- <div class="container"> -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Mongo Scraper</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/saved">Saved Articles</a>
+          </li>
+          <li>
+          <a><button id="scrapeBtn" type="button" class="btn btn-danger">SCRAPE NEW ARTICLES!</button></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section id="cover">
+    <div id="cover-caption">
+      <div class="container">
+        <div class="col-sm-12">
+          <h2>MONGO SCRAPER</h2>
+          <h3>NEWSWEEK EDITION</h3> 
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+  <section id="articles-list"></section>
+
+  <div id="scrapeModal" class="modal fade" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <h2>Added 20 new articles!</h2>          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="app.js"></script>
+<!-- </div> -->
+</body>
+</html>
