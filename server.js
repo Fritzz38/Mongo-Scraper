@@ -167,6 +167,20 @@ app.get("/articles/:id", function(req, res) {
 });
 
 
+app.post("/saved/articles/:id", function(req, res) {
+
+  Article.findOneAndUpdate({ "_id": req.params.id }, {$set: {saved: false}})
+    .exec(function(error, doc) {
+      if (error) {
+        console.log(error);
+      }
+      else {
+        res.send(doc);
+      }
+    });
+
+});
+
 
 app.post("/articles/:id", function(req, res) {
 
@@ -196,4 +210,3 @@ app.post("/articles/:id", function(req, res) {
 app.listen(3000, function() {
   console.log("App running on port 3000!!");
 });
-

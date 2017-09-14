@@ -106,7 +106,7 @@ $(document).on("click", "#unsaveBtn", function() {
 
   $.ajax({
     method: "POST",
-    url: "/articles/" + thisId,
+    url: "saved/articles/" + thisId,
     data: {
       saved: false
     }
