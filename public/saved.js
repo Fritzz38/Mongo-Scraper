@@ -38,7 +38,7 @@ $(document).on("click", "#notesBtn", function() {
     '<h4 class="modal-title">Notes For Article: ' + thisId + '</h4>' +
     '</div>' +
     '<div class="modal-body">' +
-    '<div id="articleNotes" class="well">No Notes For this Article Yet</div>' +          
+    '<div id="articleNotes" class="well clearfix">No Notes For this Article Yet</div>' +          
     '<div class="form-group">' +
     '<label for="note">New Note:</label>' +
     '<textarea class="form-control" rows="3" id="textNote"></textarea>' +
@@ -64,12 +64,16 @@ $(document).on("click", "#notesBtn", function() {
         
         $("#articleNotes").empty();
         $("#articleNotes").append(data.note.body);
+        var deleteBtn = '<button type="button" class="btn btn-danger glyphicon glyphicon-remove pull-right"></button>'
+        $("#articleNotes").append(deleteBtn);
       }
     });
 
     $("#notesModal").modal();
 
 });
+
+
 
 
 $(document).on("click", "#saveNote", function() {
@@ -95,6 +99,12 @@ $(document).on("click", "#saveNote", function() {
 
 });
 
+
+$(document).on("click", "#delnoteBtn", function() {
+
+
+
+});
 
 // when click Delete From Saved button
 // set saved to false
