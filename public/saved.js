@@ -64,7 +64,7 @@ $(document).on("click", "#notesBtn", function() {
         
         $("#articleNotes").empty();
         $("#articleNotes").append(data.note.body);
-        var deleteBtn = '<button type="button" class="btn btn-danger glyphicon glyphicon-remove pull-right"></button>'
+        var deleteBtn = '<button type="button" id="delnoteBtn" data-id=' + thisId + ' class="btn btn-danger glyphicon glyphicon-remove pull-right"></button>'
         $("#articleNotes").append(deleteBtn);
       }
     });
@@ -99,12 +99,24 @@ $(document).on("click", "#saveNote", function() {
 
 });
 
-
+// When click to delete the note for particular article
 $(document).on("click", "#delnoteBtn", function() {
 
+  var thisId = $(this).attr("data-id");
 
+   $.ajax({
+      method: "POST",
+      url: "/articles/note/" + thisId
+    })
+    .done(function(data) {
+       console.log(data);
+    });
+
+  $("#articleNotes").empty();
+  $("#articleNotes").append("No Notes For this Article Yet");
 
 });
+
 
 // when click Delete From Saved button
 // set saved to false

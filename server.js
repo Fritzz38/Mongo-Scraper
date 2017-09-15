@@ -29,9 +29,14 @@ app.use(bodyParser.urlencoded({
 app.use(express.static("public"));
 
 // Database configuration with mongoose
-mongoose.connect("mongodb://localhost/newsweek_db", {
+mongoose.connect("mongodb://heroku_xhb13x3l:o3k8d845fmnqft2na1gu8c4mle@ds135624.mlab.com:35624/heroku_xhb13x3l", {
   useMongoClient: true
 });
+
+// mongoose.connect("mongodb://localhost/newsweek_db", {
+//   useMongoClient: true
+// });
+
 var db = mongoose.connection;
 
 // Show any mongoose errors
@@ -149,8 +154,7 @@ app.post("/saved/", function(req, res) {
 });
 
 
-// these two routes below for adding note to an article 
-
+// These two routes below for adding note to an article 
 app.get("/articles/:id", function(req, res) {
 
   Article.findOne({ "_id": req.params.id })
@@ -204,6 +208,20 @@ app.post("/articles/:id", function(req, res) {
     });
 
 });
+
+app.post("/articles/note/:id", function(req, res) {
+
+  Note.findOne({"_id": req.params.id})
+  .exec(function(error, doc) {
+            if (error) {
+              console.log(error);
+            }
+            else {
+              res.send(doc);
+            }
+  });
+});
+
 
 
 // Listen on port 3000
